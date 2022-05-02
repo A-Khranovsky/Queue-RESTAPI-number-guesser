@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction')->nullable();
+            $table->string('transaction');
             $table->integer('number');
             $table->string('status');
             $table->timestamps();

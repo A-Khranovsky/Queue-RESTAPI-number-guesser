@@ -22,6 +22,7 @@ class MessageJob implements ShouldQueue
     protected string $message;
     protected string $transaction;
     protected int $number;
+    public $backoff = 1;
 
     /**
      * Create a new job instance.
@@ -31,9 +32,7 @@ class MessageJob implements ShouldQueue
     public function __construct($message)
     {
         $this->message = $message;
-        $this->transaction = time(); //Hash::make(time(), [
-            //'rounds' => 12,
-        //]);
+        $this->transaction = time();
     }
 
     /**
@@ -43,9 +42,9 @@ class MessageJob implements ShouldQueue
      */
     public function handle()
     {
-        $this->number = mt_rand(1, 10);
+        $this->number = mt_rand(1, 100);
         event(new TryJobEvent($this->number,$this->transaction));
-        if ($this->number != 5) {
+        if ($this->number != 50) {
             throw new \Exception('Trying failed. Number ' . $this->number . ' is not 5');
         } else {
             event(new SuccessJobEvent($this->number,$this->transaction));

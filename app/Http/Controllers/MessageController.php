@@ -16,7 +16,7 @@ class MessageController extends Controller
             return response('Started' ,200);
         }
         if($request->message === 'Result') {
-            return new LogsResource(Log::all());
+            return LogsResource::collection(Log::all());
         }
         return 0;
     }

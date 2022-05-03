@@ -33,7 +33,7 @@ class Job implements ShouldQueue
         if (isset($args['tries'])) {
             $this->tries = $args['tries'];
         }
-        $this->guessNumber = $args['number'] ?? 50;
+        $this->guessNumber = $args['guessNumber'] ?? 50;
         $this->transaction = time();
     }
 
@@ -45,17 +45,17 @@ class Job implements ShouldQueue
     public function handle()
     {
         $this->randNumber = mt_rand(1, 100);
-        event(new TryJobEvent($this->randNumber, $this->transaction));
+        event(new TryJobEvent($this->randNumber, $this->guessNumber, $this->transaction));
         if ($this->randNumber != $this->guessNumber) {
             throw new \Exception('Trying failed. Number ' . $this->randNumber . ' is not ' . $this->guessNumber);
         } else {
-            event(new SuccessJobEvent($this->randNumber, $this->transaction));
+            event(new SuccessJobEvent($this->randNumber, $this->guessNumber, $this->transaction));
         }
     }
 
     public function failed(Throwable $throwable)
     {
-        event(new FailedJobEvent($this->randNumber, $this->transaction, $throwable->getMessage()));
+        event(new FailedJobEvent($this->randNumber, $this->guessNumber, $this->transaction, $throwable->getMessage()));
     }
 
     public function backoff()

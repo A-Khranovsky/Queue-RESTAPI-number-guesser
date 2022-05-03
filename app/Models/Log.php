@@ -11,7 +11,8 @@ class Log extends Model
 
     protected $fillable = [
         'transaction',
-        'number',
+        'guessNumber',
+        'randNumber',
         'status'
     ];
 }

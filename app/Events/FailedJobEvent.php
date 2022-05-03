@@ -14,7 +14,8 @@ class FailedJobEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public int $number;
+    public int $randNumber;
+    public int $guessNumber;
     public string $transaction;
     public string $errorMessage;
     /**
@@ -22,9 +23,10 @@ class FailedJobEvent
      *
      * @return void
      */
-    public function __construct($number, $transaction, $errorMessage)
+    public function __construct($randNumber, $guessNumber, $transaction, $errorMessage)
     {
-        $this->number = $number;
+        $this->randNumber = $randNumber;
+        $this->guessNumber = $guessNumber;
         $this->errorMessage = $errorMessage;
         $this->transaction = $transaction;
     }

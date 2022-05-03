@@ -19,7 +19,8 @@ class LogsResource extends JsonResource
         return [
             'id' => $this->id,
             'transaction' => $this->transaction,
-            'number' => $this->number,
+            'trial number' => $this->randNumber,
+            'guess number' => $this->guessNumber,
             'status' => $this->status,
             'created_at' =>
                 (new DateTime($this->created_at))->format('Y-m-d H:i')

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
             $table->string('transaction');
-            $table->integer('number');
+            $table->integer('guessNumber');
+            $table->integer('randNumber');
             $table->string('status');
             $table->timestamps();
         });

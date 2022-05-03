@@ -27,8 +27,8 @@ class MessageController extends Controller
         if ($request->has('tries')) {
             $args['tries'] = $request->tries;
         }
-        if ($request->has('number')) {
-            $args['number'] = $request->number;
+        if ($request->has('guess_number')) {
+            $args['guessNumber'] = $request->guess_number;
         }
         Job::dispatch($args);
         if (!empty($args)) {
@@ -54,6 +54,7 @@ class MessageController extends Controller
         $transactions->each(function ($item, $key) use (&$result, $total) {
             $result[] = [
                 'transaction' => $item,
+                'guess number' => $total->whereIn('transaction', $item)->pluck('guessNumber')->first(),
                 'status' => $total->whereIn('transaction', $item)->pluck('status')->last(),
                 'used tries' => $total->whereIn('transaction', $item)->count() - 1
             ];
@@ -61,20 +62,6 @@ class MessageController extends Controller
         });
 
         return $result;
-//        $statuses = $total->map(function($item, $key), use $total{
-//            return $total['transaction']->whereIn() $item[$key][] = 'e';
-//        });
-//        $transactions = $total->pluck('transaction');
-//        $result = $total->groupBy(['transaction', function ($transactions) {
-//            return $transactions[0];
-//        }]);
-        //
-        //$transactionsCount = $transactions->countBy()->all();
-
-        //$statuses = $total->pluck('status');
-        //$statuses = $statuses->countBy()->all();
-        //return $transactions; //[$transactionsCount, $statuses];
-
     }
 
 }

@@ -14,7 +14,8 @@ class SuccessJobEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public int $number;
+    public int $randNumber;
+    public int $guessNumber;
     public string $transaction;
 
     /**
@@ -22,9 +23,10 @@ class SuccessJobEvent
      *
      * @return void
      */
-    public function __construct($number, $transaction)
+    public function __construct($randNumber, $guessNumber, $transaction)
     {
-        $this->number = $number;
+        $this->randNumber = $randNumber;
+        $this->guessNumber = $guessNumber;
         $this->transaction = $transaction;
     }
 }

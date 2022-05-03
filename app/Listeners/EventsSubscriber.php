@@ -29,7 +29,8 @@ class EventsSubscriber
     {
         Log::create([
             'transaction' => $event->transaction,
-            'number' => $event->number,
+            'guessNumber' => $event->guessNumber,
+            'randNumber' => $event->randNumber,
             'status' => 'OK'
         ]);
     }
@@ -38,7 +39,8 @@ class EventsSubscriber
     {
         Log::create([
             'transaction' => $event->transaction,
-            'number' => $event->number,
+            'guessNumber' => $event->guessNumber,
+            'randNumber' => $event->randNumber,
             'status' => $event->message
         ]);
     }
@@ -47,7 +49,8 @@ class EventsSubscriber
     {
         Log::create([
             'transaction' => $event->transaction,
-            'number' => $event->number,
+            'guessNumber' => $event->guessNumber,
+            'randNumber' => $event->randNumber,
             'status' => 'Tried'
         ]);
     }

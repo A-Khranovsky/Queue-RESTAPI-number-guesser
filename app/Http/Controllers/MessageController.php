@@ -37,7 +37,7 @@ class MessageController extends Controller
                 $result .= ' ' . $key . ' = ' . $arg;
             }
         }
-        return response('Started. Transaction = ' . time() . $result ?? '', 200);
+        return response('Started, transaction = ' . time() . $result ?? '', 200);
     }
 
     public function clear()

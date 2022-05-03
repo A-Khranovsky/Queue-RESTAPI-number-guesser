@@ -48,6 +48,32 @@ class MessageController extends Controller
 
     public function total()
     {
+        $total = Log::all();
+        $transactions = $total->pluck('transaction')->unique();
+        $result = [];
+        $transactions->each(function ($item, $key) use (&$result, $total) {
+            $result[] = [
+                'transaction' => $item,
+                'status' => $total->whereIn('transaction', $item)->pluck('status')->last(),
+                'used tries' => $total->whereIn('transaction', $item)->count() - 1
+            ];
+
+        });
+
+        return $result;
+//        $statuses = $total->map(function($item, $key), use $total{
+//            return $total['transaction']->whereIn() $item[$key][] = 'e';
+//        });
+//        $transactions = $total->pluck('transaction');
+//        $result = $total->groupBy(['transaction', function ($transactions) {
+//            return $transactions[0];
+//        }]);
+        //
+        //$transactionsCount = $transactions->countBy()->all();
+
+        //$statuses = $total->pluck('status');
+        //$statuses = $statuses->countBy()->all();
+        //return $transactions; //[$transactionsCount, $statuses];
 
     }
 

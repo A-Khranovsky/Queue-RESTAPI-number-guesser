@@ -3,22 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\LogsResource;
-use App\Jobs\MessageJob;
+use App\Jobs\Job;
 use App\Models\Log;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-    public function receiveMessage(Request $request)
+    public function show(Request $request)
     {
-        if($request->message === 'Start') {
-            MessageJob::dispatch($request->message);
-            return response('Started' ,200);
+        if ($request->has('transaction')) {
+            return LogsResource::collection(Log::where('transaction', '=', $request->get('transaction'))->get());
         }
-        if($request->message === 'Result') {
-            return LogsResource::collection(Log::all());
+        return LogsResource::collection(Log::all());
+    }
+
+    public function start(Request $request)
+    {
+        $args = [];
+        $result = '';
+        if ($request->has('backoff')) {
+            $args['backoff'] = $request->backoff;
         }
-        return 0;
+        if ($request->has('tries')) {
+            $args['tries'] = $request->tries;
+        }
+        if ($request->has('number')) {
+            $args['number'] = $request->number;
+        }
+        Job::dispatch($args);
+        if (!empty($args)) {
+            $result = ' Args:';
+            foreach ($args as $key => $arg) {
+                $result .= ' ' . $key . ' = ' . $arg;
+            }
+        }
+        return response('Started. Transaction = ' . time() . $result ?? '', 200);
+    }
+
+    public function clear()
+    {
+        Log::truncate();
+        return response('Cleared', 200);
+    }
+
+    public function total()
+    {
+
     }
 
 }

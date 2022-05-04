@@ -10,6 +10,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\Middleware\ThrottlesExceptions;
 use Illuminate\Queue\SerializesModels;
 use Throwable;
 
@@ -21,6 +22,7 @@ class Job implements ShouldQueue
         'backoff' => 0,
         'tries' => 100,
         'guessNumber' => 50,
+        'thrtlExcept' => [null, null],
     ];
     protected string $transaction;
     protected int $randNumber;
@@ -69,5 +71,19 @@ class Job implements ShouldQueue
     public function backoff()
     {
         return $this->args['backoff'];
+    }
+
+    public function middleware()
+    {
+        if (!empty($this->args['thrtlExcept'])) {
+            return [new ThrottlesExceptions($this->args['thrtlExcept'][0], $this->args['thrtlExcept'][1])];
+        } else {
+            return 0;
+        }
+    }
+
+    public function retryUntil()
+    {
+        return now()->addMinutes(2);
     }
 }

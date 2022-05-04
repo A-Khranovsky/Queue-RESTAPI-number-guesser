@@ -1,3 +1,276 @@
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T201400.200.html
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T201335.200.html
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T201333.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T201238.200.html
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-04T201212.200.json
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T201209.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T200342.200.html
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T200326.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T195919.200.html
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T195904.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T195840.200.html
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T195823.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T195809.200.html
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T195803.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T195618.200.html
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T195550.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T195308.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T195219.500.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-04T195204.200.json
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T195200.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T194532.200.html
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-04T194512.200.json
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T194508.200.html
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[0]=10&thrtl_except[1]=5
+Accept: application/json
+
+<> 2022-05-04T180034.200.html
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[0]=10&thrtl_except[1]=1
+Accept: application/json
+
+<> 2022-05-04T174907.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-04T174850.200.html
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-04T174807.200.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[0]=10&thrtl_except[1]=1
+Accept: application/json
+
+<> 2022-05-04T174616.200.html
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-04T174528.200.json
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-04T174508.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-04T173649.200.json
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-04T173626.200.html
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-04T173513.200.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[0]=10&thrtl_except[1]=5
+Accept: application/json
+
+<> 2022-05-04T173504.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-04T173216.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-04T173153.200.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[0]=10&thrtl_except[1]=5
+Accept: application/json
+
+<> 2022-05-04T173142.200.html
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[0]=10&thrtl_except[1]=5
+Accept: application/json
+
+<> 2022-05-04T172802.500.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[0]=10&thrtl_except[1]=5
+Accept: application/json
+
+<> 2022-05-04T172629.500.json
+
+###
+
 GET http://localhost:80/api/app/total
 Accept: application/json
 
@@ -72,279 +345,6 @@ GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
 Accept: application/json
 
 <> 2022-05-04T163616.200.html
-
-###
-
-GET http://localhost:80/api/app/logs/clear
-Accept: application/json
-
-<> 2022-05-04T163610.200.html
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T163157.200.json
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T163148.200.html
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T124520.200.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T124355.200.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T124255.200.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T124213.200.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T124044.500.json
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T124008.200.html
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T123912.500.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T123906.200.html
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T123807.500.json
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T123759.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T123755.200.html
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T123428.500.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T123422.500.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T122106.500.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T122029.500.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T121816.500.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T121617.500.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T121509.500.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T121059.200.json
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T121049.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T121044.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T121016.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T121012.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T120928.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T120921.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T115522.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T115518.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T115251.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T115248.200.html
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T115220.200.json
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T115214.200.json
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T115208.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T115103.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T115058.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-04T113224.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T113220.200.html
 
 ###
 

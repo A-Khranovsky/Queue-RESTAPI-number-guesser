@@ -31,19 +31,22 @@ class QueueController extends Controller
         if ($request->has('guess_number')) {
             $args['guessNumber'] = $request->guess_number;
         }
+        if ($request->has('thrtl_except')) {
+            $args['thrtlExcept'] = $request->thrtl_except;
+        }
         Job::dispatch($args);
         if (!empty($args)) {
             $result = ' Args:';
-            foreach ($args as $key => $arg) {
-                $result .= ' ' . $key . ' = ' . $arg;
-            }
+            array_walk_recursive($args, function($item, $key) use(&$result){
+                $result .= ' ' . $key . ' = ' . $item;
+            });
         }
         return response('Started, transaction = ' . time() . $result ?? '', 200);
     }
 
     public function clear()
     {
-        Log::truncate();
+        Param::where('id', '>', 0)->delete();
         return response('Cleared', 200);
     }
 

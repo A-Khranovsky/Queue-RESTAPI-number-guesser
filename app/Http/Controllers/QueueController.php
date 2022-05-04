@@ -7,7 +7,7 @@ use App\Jobs\Job;
 use App\Models\Log;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class QueueController extends Controller
 {
     public function show(Request $request)
     {
@@ -56,7 +56,8 @@ class MessageController extends Controller
                 'transaction' => $item,
                 'guess number' => $total->whereIn('transaction', $item)->pluck('guessNumber')->first(),
                 'status' => $total->whereIn('transaction', $item)->pluck('status')->last(),
-                'used tries' => $total->whereIn('transaction', $item)->count() - 1
+                'used tries' => $total->whereIn('transaction', $item)->count() - 1,
+                'params' => ''
             ];
 
         });

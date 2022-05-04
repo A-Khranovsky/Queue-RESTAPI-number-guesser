@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('logs', function (Blueprint $table) {
+        Schema::create('params', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction');
-            $table->integer('guessNumber');
-            $table->integer('randNumber');
-            $table->string('status');
+            $table->string('params');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::dropIfExists('params');
     }
 };

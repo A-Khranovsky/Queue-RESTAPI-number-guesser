@@ -16,9 +16,12 @@ class Job implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $args = [];
+    protected $args = [
+        'backoff' => 0,
+        'tries' => 100,
+        'guessNumber' => 50,
+    ];
     protected string $transaction;
-    protected int $guessNumber;
     protected int $randNumber;
     public $tries = 100;
 
@@ -29,11 +32,10 @@ class Job implements ShouldQueue
      */
     public function __construct($args = [])
     {
-        $this->args = $args;
-        if (isset($args['tries'])) {
-            $this->tries = $args['tries'];
+        if(!empty($args)) {
+            $this->args = array_merge($this->args, $args);
+            $this->tries = $this->args['tries'];
         }
-        $this->guessNumber = $args['guessNumber'] ?? 50;
         $this->transaction = time();
     }
 
@@ -45,21 +47,21 @@ class Job implements ShouldQueue
     public function handle()
     {
         $this->randNumber = mt_rand(1, 100);
-        event(new TryJobEvent($this->randNumber, $this->guessNumber, $this->transaction));
-        if ($this->randNumber != $this->guessNumber) {
-            throw new \Exception('Trying failed. Number ' . $this->randNumber . ' is not ' . $this->guessNumber);
+        event(new TryJobEvent($this->randNumber, $this->args['guessNumber'], $this->transaction));
+        if ($this->randNumber != $this->args['guessNumber']) {
+            throw new \Exception('Trying failed. Number ' . $this->randNumber . ' is not ' . $this->args['guessNumber']);
         } else {
-            event(new SuccessJobEvent($this->randNumber, $this->guessNumber, $this->transaction));
+            event(new SuccessJobEvent($this->randNumber, $this->args['guessNumber'], $this->transaction));
         }
     }
 
     public function failed(Throwable $throwable)
     {
-        event(new FailedJobEvent($this->randNumber, $this->guessNumber, $this->transaction, $throwable->getMessage()));
+        event(new FailedJobEvent($this->randNumber, $this->args['guessNumber'], $this->transaction, $throwable->getMessage()));
     }
 
     public function backoff()
     {
-        return $this->args['backoff'] ?? 0;
+        return $this->args['backoff'];
     }
 }

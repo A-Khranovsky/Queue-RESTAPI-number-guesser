@@ -12,4 +12,9 @@ class Param extends Model
     protected $fillable = [
         'params'
     ];
+
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
 }

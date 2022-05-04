@@ -18,16 +18,18 @@ class FailedJobEvent
     public int $guessNumber;
     public string $transaction;
     public string $errorMessage;
+    public int $paramId;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($randNumber, $guessNumber, $transaction, $errorMessage)
+    public function __construct($randNumber, $guessNumber, $transaction, $errorMessage, $paramId)
     {
         $this->randNumber = $randNumber;
         $this->guessNumber = $guessNumber;
         $this->errorMessage = $errorMessage;
         $this->transaction = $transaction;
+        $this->paramId = $paramId;
     }
 }

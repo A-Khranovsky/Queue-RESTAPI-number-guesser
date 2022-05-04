@@ -17,16 +17,18 @@ class TryJobEvent
     public int $randNumber;
     public int $guessNumber;
     public string $transaction;
+    public int $paramId;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($randNumber, $guessNumber, $transaction)
+    public function __construct($randNumber, $guessNumber, $transaction, $paramId)
     {
         $this->randNumber = $randNumber;
         $this->guessNumber = $guessNumber;
         $this->transaction = $transaction;
+        $this->paramId = $paramId;
     }
 }

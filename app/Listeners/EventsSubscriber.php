@@ -31,7 +31,8 @@ class EventsSubscriber
             'transaction' => $event->transaction,
             'guessNumber' => $event->guessNumber,
             'randNumber' => $event->randNumber,
-            'status' => 'OK'
+            'status' => 'OK',
+            'param_id' => $event->paramId
         ]);
     }
 
@@ -41,7 +42,8 @@ class EventsSubscriber
             'transaction' => $event->transaction,
             'guessNumber' => $event->guessNumber,
             'randNumber' => $event->randNumber,
-            'status' => $event->message
+            'status' => $event->message,
+            'param_id' => $event->paramId
         ]);
     }
 
@@ -51,7 +53,8 @@ class EventsSubscriber
             'transaction' => $event->transaction,
             'guessNumber' => $event->guessNumber,
             'randNumber' => $event->randNumber,
-            'status' => 'Tried'
+            'status' => 'Tried',
+            'param_id' => $event->paramId
         ]);
     }
 

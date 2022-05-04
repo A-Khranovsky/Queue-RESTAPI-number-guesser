@@ -16,4 +16,9 @@ class Log extends Model
         'status',
         'param_id'
     ];
+
+    public function param()
+    {
+        return $this->belongsTo(Param::class);
+    }
 }

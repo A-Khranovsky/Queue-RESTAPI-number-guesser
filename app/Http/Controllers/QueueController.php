@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\LogsResource;
 use App\Jobs\Job;
 use App\Models\Log;
+use App\Models\Param;
 use Illuminate\Http\Request;
 
 class QueueController extends Controller
@@ -57,7 +58,7 @@ class QueueController extends Controller
                 'guess number' => $total->whereIn('transaction', $item)->pluck('guessNumber')->first(),
                 'status' => $total->whereIn('transaction', $item)->pluck('status')->last(),
                 'used tries' => $total->whereIn('transaction', $item)->count() - 1,
-                'params' => ''
+                'params' => json_decode($total->where('transaction','=', $item)->first()->param->params)
             ];
 
         });

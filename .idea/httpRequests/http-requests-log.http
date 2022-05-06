@@ -1,3 +1,66 @@
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-06T171053.200.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[excptCount]=15&thrtl_except[waitMin]=1
+Accept: application/json
+
+<> 2022-05-06T170726.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-06T170544.200.json
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-06T170240.200.json
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-06T170118.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-06T170056.200.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[excptCount]=15&thrtl_except[waitMin]=1
+Accept: application/json
+
+<> 2022-05-06T165955.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-06T165421.200.json
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-06T165417.200.html
+
+###
+
 GET http://localhost:80/api/app/logs/clear
 Accept: application/json
 
@@ -282,69 +345,6 @@ GET http://localhost:80/api/app/total
 Accept: application/json
 
 <> 2022-05-04T165032.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-04T165027.200.html
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T165011.200.json
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-04T164916.200.json
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T164836.200.html
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T164818.200.html
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T164610.200.html
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T164311.500.json
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T164129.500.json
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32
-Accept: application/json
-
-<> 2022-05-04T163616.200.html
 
 ###
 

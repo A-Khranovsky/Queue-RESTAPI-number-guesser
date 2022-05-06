@@ -76,7 +76,10 @@ class Job implements ShouldQueue
     public function middleware()
     {
         if (!empty($this->args['thrtlExcept'])) {
-            return [new ThrottlesExceptions($this->args['thrtlExcept'][0], $this->args['thrtlExcept'][1])];
+            return [new ThrottlesExceptions
+            (
+                $this->args['thrtlExcept']['excptCount'], $this->args['thrtlExcept']['waitMin']
+            )];
         } else {
             return 0;
         }

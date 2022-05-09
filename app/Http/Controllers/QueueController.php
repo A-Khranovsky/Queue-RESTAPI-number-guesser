@@ -62,7 +62,10 @@ class QueueController extends Controller
                 'guess number' => $total->whereIn('transaction', $item)->pluck('guessNumber')->first(),
                 'status' => $total->whereIn('transaction', $item)->pluck('status')->last(),
                 'used tries' => $total->whereIn('transaction', $item)->count() - 1,
-                'params' => json_decode($total->where('transaction','=', $item)->first()->param->params)
+                'params' => json_decode($total->where('transaction','=', $item)->first()->param->params),
+                'start date' => $total->where('transaction','=', $item)->first()->param->startDateTime,
+                'end date' => $total->where('transaction','=', $item)->first()->param->endDateTime,
+                'completion time' => $total->where('transaction','=', $item)->first()->param->completionTime,
             ];
 
         });

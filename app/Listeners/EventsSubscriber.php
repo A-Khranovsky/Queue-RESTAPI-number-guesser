@@ -5,7 +5,6 @@ namespace App\Listeners;
 use App\Events\FailedJobEvent;
 use App\Events\SuccessJobEvent;
 use App\Events\TryJobEvent;
-use App\Library\StartTimeRegistrator;
 use App\Models\Log;
 use App\Models\Param;
 use Carbon\Carbon;

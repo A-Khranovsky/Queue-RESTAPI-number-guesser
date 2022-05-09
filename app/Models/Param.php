@@ -10,7 +10,10 @@ class Param extends Model
     use HasFactory;
 
     protected $fillable = [
-        'params'
+        'params',
+        'startDateTime',
+        'completionTime',
+        'endDateTime'
     ];
 
     public function logs()

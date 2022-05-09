@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('params', function (Blueprint $table) {
             $table->id();
             $table->string('params');
-            $table->time('complitionTime');
-            $table->dateTime('endDateTime');
+            $table->dateTime('startDateTime')->nullable();
+            $table->time('completionTime')->nullable();
+            $table->dateTime('endDateTime')->nullable();
             $table->timestamps();
         });
     }

@@ -22,7 +22,10 @@ class Job implements ShouldQueue
         'backoff' => 0,
         'tries' => 100,
         'guessNumber' => 50,
-        'thrtlExcept' => [null, null],
+        'thrtlExcept' => [
+                'excptCount' => '',
+                'waitMin' => '',
+            ]
     ];
     protected string $transaction;
     protected int $randNumber;
@@ -41,7 +44,8 @@ class Job implements ShouldQueue
             $this->tries = $this->args['tries'];
         }
         $param = Param::create([
-            'params' => json_encode($this->args)
+            'params' => json_encode($this->args),
+            'startDateTime' => date("Y-m-d H:i:s")
         ]);
         $this->idParam = $param->id;
         $this->transaction = time();
@@ -85,8 +89,8 @@ class Job implements ShouldQueue
         }
     }
 
-    public function retryUntil()
-    {
-        return now()->addMinutes(2);
-    }
+//    public function retryUntil()
+//    {
+//        return now()->addMinutes(2);
+//    }
 }

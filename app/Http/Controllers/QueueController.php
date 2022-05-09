@@ -41,6 +41,7 @@ class QueueController extends Controller
                 $result .= ' ' . $key . ' = ' . $item;
             });
         }
+
         return response('Started, transaction = ' . time() . $result ?? '', 200);
     }
 

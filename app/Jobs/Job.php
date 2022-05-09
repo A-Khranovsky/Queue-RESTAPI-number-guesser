@@ -37,9 +37,9 @@ class Job implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($args = [])
+    public function __construct($args)
     {
-        if (!empty($args)) {
+        if (sizeof($args) > 0) {
             $this->args = array_merge($this->args, $args);
             $this->tries = $this->args['tries'];
         }
@@ -49,6 +49,10 @@ class Job implements ShouldQueue
         ]);
         $this->idParam = $param->id;
         $this->transaction = time();
+
+//        $fp = fopen('/var/www/app/qq.txt', 'w');
+//        fwrite($fp, print_r(sizeof($args), TRUE));
+//        fclose($fp);
     }
 
     /**
@@ -79,13 +83,11 @@ class Job implements ShouldQueue
 
     public function middleware()
     {
-        if (!empty($this->args['thrtlExcept'])) {
+        if (sizeof($this->args['thrtlExcept']) > 0) {
             return [new ThrottlesExceptions
             (
                 $this->args['thrtlExcept']['excptCount'], $this->args['thrtlExcept']['waitMin']
             )];
-        } else {
-            return 0;
         }
     }
 

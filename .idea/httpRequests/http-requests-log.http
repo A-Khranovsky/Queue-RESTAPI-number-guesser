@@ -1,350 +1,350 @@
 GET http://localhost:80/api/app/total
 Accept: application/json
 
-<> 2022-05-09T170839.200.json
+<> 2022-05-12T133015.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T170614.200.json
+<> 2022-05-12T133007.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T170548.200.json
+<> 2022-05-12T133002.200.json
 
 ###
 
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[excptCount]=50&thrtl_except[waitMin]=1
+GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T170536.200.html
+<> 2022-05-12T132947.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T132821.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T132818.200.json
 
 ###
 
 GET http://localhost:80/api/app/total
 Accept: application/json
 
-<> 2022-05-09T170505.200.json
+<> 2022-05-12T132759.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T170458.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T170455.200.html
+<> 2022-05-12T132645.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T170440.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T170434.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T170142.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T170138.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T165912.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T165903.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T164903.200.json
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[excptCount]=30&thrtl_except[waitMin]=1
-Accept: application/json
-
-<> 2022-05-09T164854.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T164759.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T164755.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T164351.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T164348.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T163223.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T163220.200.html
+<> 2022-05-12T132641.200.json
 
 ###
 
 GET http://localhost:80/api/app/total
 Accept: application/json
 
-<> 2022-05-09T163117.200.json
+<> 2022-05-12T132620.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T162526.200.json
-
-###
-
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[excptCount]=15&thrtl_except[waitMin]=1
-Accept: application/json
-
-<> 2022-05-09T162350.200.html
+<> 2022-05-12T132608.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T162250.200.json
+<> 2022-05-12T132604.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T132410.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T132401.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T132356.200.json
+
+###
+
+GET http://localhost:80/api/app/start?backoff=2
+Accept: application/json
+
+<> 2022-05-12T132351.200.html
+
+###
+
+GET http://localhost:80/api/app/logs/clear
+Accept: application/json
+
+<> 2022-05-12T132034.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T132013.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T132001.200.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=200&backoff=0&guess_number=32
+Accept: application/json
+
+<> 2022-05-12T131950.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T131930.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T131922.200.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=200&backoff=0&guess_number=32
+Accept: application/json
+
+<> 2022-05-12T131916.200.html
+
+###
+
+GET http://localhost:80/api/app/logs?transaction=1652350657
+Accept: application/json
+
+<> 2022-05-12T131856.200.json
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T131759.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T131753.200.json
 
 ###
 
 GET http://localhost:80/api/app/start
 Accept: application/json
 
-<> 2022-05-09T162246.200.html
+<> 2022-05-12T131747.200.html
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T161934.200.json
+<> 2022-05-12T131742.200.json
 
 ###
 
 GET http://localhost:80/api/app/start
 Accept: application/json
 
-<> 2022-05-09T161930.200.html
+<> 2022-05-12T131737.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T131730.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T161717.200.json
+<> 2022-05-12T131723.200.json
 
 ###
 
 GET http://localhost:80/api/app/start
 Accept: application/json
 
-<> 2022-05-09T161712.200.html
+<> 2022-05-12T131718.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T131706.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T160820.200.json
+<> 2022-05-12T131700.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T131644.200.json
 
 ###
 
 GET http://localhost:80/api/app/start
 Accept: application/json
 
-<> 2022-05-09T160815.200.html
+<> 2022-05-12T131641.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T130838.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T160809.200.json
+<> 2022-05-12T130831.200.json
 
 ###
 
 GET http://localhost:80/api/app/start
 Accept: application/json
 
-<> 2022-05-09T160803.200.html
+<> 2022-05-12T130825.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T130812.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T160138.200.json
+<> 2022-05-12T130803.200.json
 
 ###
 
 GET http://localhost:80/api/app/start
 Accept: application/json
 
-<> 2022-05-09T160133.200.html
+<> 2022-05-12T130752.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T125648.200.json
+
+###
+
+GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&thrtl_except[excptCount]=0&thrtl_except[waitMin]=0
+Accept: application/json
+
+<> 2022-05-12T125637.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T125529.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T160127.200.json
+<> 2022-05-12T125520.200.json
 
 ###
 
 GET http://localhost:80/api/app/start
 Accept: application/json
 
-<> 2022-05-09T160123.200.html
+<> 2022-05-12T125518.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T125259.200.json
 
 ###
 
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
-<> 2022-05-09T160116.200.json
+<> 2022-05-12T125221.200.json
 
 ###
 
 GET http://localhost:80/api/app/start
 Accept: application/json
 
-<> 2022-05-09T160109.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T160100.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T160056.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T160030.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T160025.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T160011.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-09T160007.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T155835.200.json
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T155615.200.json
-
-###
-
-GET http://localhost:80/api/app/start?guess_number=32
-Accept: application/json
-
-<> 2022-05-09T155607.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-09T154714.200.json
+<> 2022-05-12T125218.200.html
 
 ###
 

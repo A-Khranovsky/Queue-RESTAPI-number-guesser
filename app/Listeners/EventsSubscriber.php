@@ -2,31 +2,22 @@
 
 namespace App\Listeners;
 
+use App\Events\FailedExceptionEvent;
 use App\Events\FailedJobEvent;
 use App\Events\SuccessJobEvent;
-use App\Events\TryJobEvent;
 use App\Models\Log;
-use App\Models\Param;
-use Carbon\Carbon;
+use App\Traits\WriteTimeParams;
+use Exception;
 
 class EventsSubscriber
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
+    use WriteTimeParams;
+
     public function __construct()
     {
         //
     }
 
-    /**
-     * Handle the event.
-     *
-     * @param  object  $event
-     * @return void
-     */
     public function handleSuccessJob($event)
     {
         Log::create([
@@ -36,7 +27,6 @@ class EventsSubscriber
             'status' => 'OK',
             'param_id' => $event->paramId
         ]);
-
         $this->writeTimeParams($event->paramId);
     }
 
@@ -46,37 +36,20 @@ class EventsSubscriber
             'transaction' => $event->transaction,
             'guessNumber' => $event->guessNumber,
             'randNumber' => $event->randNumber,
-            'status' => $event->message,
-            'param_id' => $event->paramId
-        ]);
-
-        $this->writeTimeParams($event->paramId);
-    }
-
-    public function handleTryJob($event)
-    {
-        Log::create([
-            'transaction' => $event->transaction,
-            'guessNumber' => $event->guessNumber,
-            'randNumber' => $event->randNumber,
-            'status' => 'Tried',
+            'status' => 'Failed',
             'param_id' => $event->paramId
         ]);
     }
 
-    public function writeTimeParams(int $paramId)
+
+    public function handleFailedException($event)
     {
-        $param = Param::find($paramId);
-        $param->endDateTime = date("Y-m-d H:i:s");
-        $param->save();
-
-        $startDateTime = Param::find($paramId)->startDateTime;
-        $endDateTime = Param::find($paramId)->endDateTime;
-        $startDateTime = Carbon::createFromFormat('Y-m-d H:i:s',$startDateTime);
-        $endDateTime = Carbon::createFromFormat('Y-m-d H:i:s',$endDateTime);
-
-        $param->completionTime = $endDateTime->diffInSeconds($startDateTime);
-        $param->save();
+        try {
+            $message = json_decode($event->exception->getMessage(), true);
+            $this->writeTimeParams($message['idParam']);
+        } catch (Exception $exception) {
+            throw new Exception($exception);
+        }
     }
 
     public function subscribe($events)
@@ -92,8 +65,15 @@ class EventsSubscriber
         );
 
         $events->listen(
-            TryJobEvent::class,
-            [EventsSubscriber::class, 'handleTryJob']
+            FailedExceptionEvent::class,
+            [EventsSubscriber::class, 'handleFailedException']
         );
+
+//        return [
+//            SuccessJobEvent::class => 'handleSuccessJob',
+//            FailedJobEvent::class => 'handleFailedJob',
+//            WriteTimeParamsEvent::class => 'handleWriteTimeParams',
+//
+//        ];
     }
 }

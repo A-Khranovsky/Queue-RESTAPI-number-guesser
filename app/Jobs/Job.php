@@ -2,17 +2,16 @@
 
 namespace App\Jobs;
 
+use App\Events\FailedExceptionEvent;
 use App\Events\FailedJobEvent;
 use App\Events\SuccessJobEvent;
-use App\Events\TryJobEvent;
 use App\Models\Param;
+use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\Middleware\ThrottlesExceptions;
 use Illuminate\Queue\SerializesModels;
-use Throwable;
 
 class Job implements ShouldQueue
 {
@@ -21,13 +20,9 @@ class Job implements ShouldQueue
     protected $args = [
         'backoff' => 0,
         'tries' => 100,
-        'guessNumber' => 50,
-        'thrtlExcept' => [
-                'excptCount' => '',
-                'waitMin' => '',
-            ]
+        'guessNumber' => 50
     ];
-    protected string $transaction;
+    protected int $transaction;
     protected int $randNumber;
     protected int $idParam;
     public $tries = 100;
@@ -41,18 +36,14 @@ class Job implements ShouldQueue
     {
         if (sizeof($args) > 0) {
             $this->args = array_merge($this->args, $args);
-            $this->tries = $this->args['tries'];
         }
+        $this->tries = $this->args['tries'];
         $param = Param::create([
             'params' => json_encode($this->args),
             'startDateTime' => date("Y-m-d H:i:s")
         ]);
         $this->idParam = $param->id;
         $this->transaction = time();
-
-//        $fp = fopen('/var/www/app/qq.txt', 'w');
-//        fwrite($fp, print_r(sizeof($args), TRUE));
-//        fclose($fp);
     }
 
     /**
@@ -63,36 +54,37 @@ class Job implements ShouldQueue
     public function handle()
     {
         $this->randNumber = mt_rand(1, 100);
-        event(new TryJobEvent($this->randNumber, $this->args['guessNumber'], $this->transaction, $this->idParam));
         if ($this->randNumber != $this->args['guessNumber']) {
-            throw new \Exception('Trying failed. Number ' . $this->randNumber . ' is not ' . $this->args['guessNumber']);
+            event(new FailedJobEvent
+            (
+                $this->randNumber,
+                $this->args['guessNumber'],
+                $this->transaction,
+                $this->idParam
+            ));
+            $message = [
+                'message' => 'Failed. ' . $this->randNumber . ' is not ' . $this->args['guessNumber'],
+                'idParam' => $this->idParam
+            ];
+            throw new Exception(json_encode($message, true));
         } else {
-            event(new SuccessJobEvent($this->randNumber, $this->args['guessNumber'], $this->transaction, $this->idParam));
+            event(new SuccessJobEvent
+            (
+                $this->randNumber,
+                $this->args['guessNumber'],
+                $this->transaction,
+                $this->idParam
+            ));
         }
     }
 
-    public function failed(Throwable $throwable)
+    public function failed(Exception $exception)
     {
-        event(new FailedJobEvent($this->randNumber, $this->args['guessNumber'], $this->transaction, $throwable->getMessage(), $this->idParam));
+        event(new FailedExceptionEvent($exception));
     }
 
     public function backoff()
     {
         return $this->args['backoff'];
     }
-
-    public function middleware()
-    {
-        if (sizeof($this->args['thrtlExcept']) > 0) {
-            return [new ThrottlesExceptions
-            (
-                $this->args['thrtlExcept']['excptCount'], $this->args['thrtlExcept']['waitMin']
-            )];
-        }
-    }
-
-//    public function retryUntil()
-//    {
-//        return now()->addMinutes(2);
-//    }
 }

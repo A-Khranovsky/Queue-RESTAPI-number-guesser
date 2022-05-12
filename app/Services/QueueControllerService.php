@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+
+namespace App\Services;
+
 
 use App\Http\Resources\LogsResource;
 use App\Jobs\Job;
@@ -8,9 +10,10 @@ use App\Models\Log;
 use App\Models\Param;
 use Illuminate\Http\Request;
 
-class QueueController extends Controller
+class QueueControllerService implements QueueControllerServiceInterface
 {
-    public function show(Request $request)
+
+    public function show($request)
     {
         if ($request->has('transaction')) {
             return LogsResource::collection(Log::where('transaction', '=', $request->get('transaction'))->get());
@@ -18,7 +21,7 @@ class QueueController extends Controller
         return LogsResource::collection(Log::all());
     }
 
-    public function start(Request $request)
+    public function start($request)
     {
         $args = [];
         $result = '';
@@ -72,5 +75,4 @@ class QueueController extends Controller
 
         return $result;
     }
-
 }

@@ -20,7 +20,11 @@ class Job implements ShouldQueue
     protected $args = [
         'backoff' => 0,
         'tries' => 100,
-        'guessNumber' => 50
+        'guessNumber' => 50,
+        'range' => [
+            'start' => 0,
+            'end' => 100
+        ]
     ];
     protected int $transaction;
     protected int $randNumber;
@@ -53,7 +57,11 @@ class Job implements ShouldQueue
      */
     public function handle()
     {
-        $this->randNumber = mt_rand(1, 100);
+        $this->randNumber = mt_rand
+        (
+            $this->args['range']['start'],
+            $this->args['range']['end']
+        );
         if ($this->randNumber != $this->args['guessNumber']) {
             event(new FailedJobEvent
             (

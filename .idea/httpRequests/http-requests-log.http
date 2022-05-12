@@ -1,3 +1,43 @@
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T170747.200.json
+
+###
+
+GET http://localhost:80/api/app/start?backoff=1
+Accept: application/json
+
+<> 2022-05-12T170719.200.html
+
+###
+
+GET http://localhost:80/api/app/total
+Accept: application/json
+
+<> 2022-05-12T170606.200.json
+
+###
+
+GET http://localhost:80/api/app/logs
+Accept: application/json
+
+<> 2022-05-12T170554.200.json
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+<> 2022-05-12T170526.200.html
+
+###
+
+GET http://localhost:80/api/app/start
+Accept: application/json
+
+###
+
 GET http://localhost:80/api/app/logs
 Accept: application/json
 
@@ -303,48 +343,6 @@ GET http://localhost:80/api/app/start
 Accept: application/json
 
 <> 2022-05-12T131747.200.html
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-12T131742.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-12T131737.200.html
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-12T131730.200.json
-
-###
-
-GET http://localhost:80/api/app/logs
-Accept: application/json
-
-<> 2022-05-12T131723.200.json
-
-###
-
-GET http://localhost:80/api/app/start
-Accept: application/json
-
-<> 2022-05-12T131718.200.html
-
-###
-
-GET http://localhost:80/api/app/total
-Accept: application/json
-
-<> 2022-05-12T131706.200.json
 
 ###
 

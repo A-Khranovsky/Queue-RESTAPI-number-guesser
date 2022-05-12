@@ -16,21 +16,21 @@ class QueueController extends Controller
 
     public function show(Request $request)
     {
-        $this->queueControllerService->show($request);
+        return $this->queueControllerService->show($request);
     }
 
     public function start(Request $request)
     {
-        $this->queueControllerService->start($request);
+        return $this->queueControllerService->start($request);
     }
 
     public function clear()
     {
-        $this->queueControllerService->clear();
+        return $this->queueControllerService->clear();
     }
 
     public function total()
     {
-        $this->queueControllerService->total();
+        return $this->queueControllerService->total();
     }
 }

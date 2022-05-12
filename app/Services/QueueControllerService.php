@@ -8,7 +8,6 @@ use App\Http\Resources\LogsResource;
 use App\Jobs\Job;
 use App\Models\Log;
 use App\Models\Param;
-use Illuminate\Http\Request;
 
 class QueueControllerService implements QueueControllerServiceInterface
 {

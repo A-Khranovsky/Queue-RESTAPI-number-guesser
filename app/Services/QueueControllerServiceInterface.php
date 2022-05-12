@@ -3,8 +3,6 @@
 
 namespace App\Services;
 
-
-use App\Http\Resources\LogsResource;
 use Illuminate\Http\Request;
 
 interface QueueControllerServiceInterface

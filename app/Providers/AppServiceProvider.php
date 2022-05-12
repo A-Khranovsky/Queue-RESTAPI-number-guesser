@@ -2,10 +2,8 @@
 
 namespace App\Providers;
 
-use App\Events\FailedJobEvent;
-use Illuminate\Queue\Events\JobFailed;
-use Illuminate\Queue\Events\JobProcessed;
-use Illuminate\Support\Facades\Queue;
+use App\Services\QueueControllerService;
+use App\Services\QueueControllerServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->singleton(QueueControllerServiceInterface::class, function(){
+           return new QueueControllerService();
+        });
     }
 
     /**
@@ -27,10 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        Queue::failing(function ($connection, $job, $data) {
-//            $fp = fopen('/var/www/app/qq.txt', 'w');
-//            fwrite($fp, 'www');
-//            fclose($fp);
-//        });
+
     }
 }

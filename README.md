@@ -11,7 +11,7 @@ Default configurations:
 ```
 
 ## Up the services
-docker-compose up -d
+docker-compose up --build -d
 
 ## Go to the container
 docker exec -it queue-restapi-number-guesser_app_1 bash

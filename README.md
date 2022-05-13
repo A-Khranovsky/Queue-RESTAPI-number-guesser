@@ -1,5 +1,5 @@
 # Queue-RESTAPI-number-guesser
-Web application tries to guess a number using a job in a queue many times by genereting a random number. It equals a genereted number and a number has configured. If number is not guessed the job returns to queue once again and it will be continued for a number of tries has configured. App uses RESTAPI to: direct it, input parameters, get result info, get log info.  (Used info from user 'sagar290', thanks to him)
+Web application tries to guess a number using a job in a queue many times by genereting a random number. It equals a genereted number and a number has configured. If number is not guessed the job returns to queue once again and it will be continued for a number of tries has configured. App uses RESTAPI to: direct it, input parameters, get result info, get log info.  (Used docker configuration info from user 'sagar290', thanks to him)
 
 ```
 Default configurations:  

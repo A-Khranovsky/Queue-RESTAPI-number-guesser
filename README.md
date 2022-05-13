@@ -45,7 +45,7 @@ Accept: application/json
 
 ###
 ```
-* Start guessing a number which has configured and from request and trial number's range which has
+* Start guessing a number which has configured from request and trial number's range which has
   configured from request also
 ```
 GET http://localhost:80/api/app/start?guess_number=32&range[start]=0&range[end]=200
@@ -54,7 +54,7 @@ Accept: application/json
 ###
 ```
 
-* Start guessing a number which has configured and from request and trial number's range which has
+* Start guessing a number which has configured from request and trial number's range which has
   configured from request also
 ```
 GET http://localhost:80/api/app/start?guess_number=32&range[start]=0&range[end]=200
@@ -71,7 +71,7 @@ Accept: application/json
 ###
 ```
 
-* View the logs of tries
+* View the logs of all transactions
 ```
 GET http://localhost:80/api/app/logs
 Accept: application/json

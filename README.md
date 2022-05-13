@@ -17,7 +17,7 @@ docker-compose up -d
 docker exec -it queue-restapi-number-guesser_app_1 bash
 
 ## Run inside the container
-php artisan migrate
+php artisan migrate  
 cp .env.example .env
 
 ## HTTP requests to direct the app or them combinations:

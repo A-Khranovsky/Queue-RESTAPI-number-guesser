@@ -104,4 +104,64 @@ Accept: application/json
 ```
 
 ## Down services if you are exit
-docker-compose down  
+docker-compose down 
+
+```
+Some demostration:
+
+GET http://localhost:80/api/app/start
+
+HTTP/1.1 200 OK
+Server: nginx/1.21.6
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/8.0.2
+Cache-Control: no-cache, private
+Date: Sat, 14 May 2022 07:48:43 GMT
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 59
+Access-Control-Allow-Origin: *
+
+Started, transaction = 1652514523
+
+Response code: 200 (OK); Time: 733ms; Content length: 33 bytes
+
+
+GET http://localhost:80/api/app/total
+
+HTTP/1.1 200 OK
+Server: nginx/1.21.6
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/8.0.2
+Cache-Control: no-cache, private
+Date: Sat, 14 May 2022 07:50:07 GMT
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 59
+Access-Control-Allow-Origin: *
+
+[
+  {
+    "transaction": 1652514523,
+    "guess number": 50,
+    "status": "OK",
+    "used tries": 45,
+    "params": {
+      "backoff": 0,
+      "tries": 100,
+      "guessNumber": 50,
+      "range": {
+        "start": 0,
+        "end": 100
+      }
+    },
+    "start date": "2022-05-14 07:48:43",
+    "end date": "2022-05-14 07:48:47",
+    "completion time": "00:00:04"
+  }
+]
+
+Response code: 200 (OK); Time: 356ms; Content length: 255 bytes
+```

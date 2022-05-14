@@ -14,7 +14,7 @@ Default configurations:
 docker-compose up --build -d
 
 ## Go to the container
-docker exec -it queue-restapi-number-guesser_app_1 bash
+docker exec -it queue-restapi-number-guesser-app-1 bash  
 
 ## Run inside the container
 php artisan migrate  

@@ -106,9 +106,8 @@ Accept: application/json
 ## Down services if you are exit
 docker-compose down 
 
+## Some demostration:
 ```
-Some demostration:
-
 GET http://localhost:80/api/app/start
 
 HTTP/1.1 200 OK

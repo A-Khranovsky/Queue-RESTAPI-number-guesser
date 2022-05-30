@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services;
-
 
 use App\Http\Resources\LogsResource;
 use App\Jobs\Job;
@@ -11,7 +9,6 @@ use App\Models\Param;
 
 class QueueControllerService implements QueueControllerServiceInterface
 {
-
     public function show($request)
     {
         if ($request->has('transaction')) {
@@ -39,7 +36,7 @@ class QueueControllerService implements QueueControllerServiceInterface
         Job::dispatch($args);
         if (!empty($args)) {
             $result = ' Args:';
-            array_walk_recursive($args, function($item, $key) use(&$result){
+            array_walk_recursive($args, function ($item, $key) use (&$result) {
                 $result .= ' ' . $key . ' = ' . $item;
             });
         }
@@ -64,12 +61,11 @@ class QueueControllerService implements QueueControllerServiceInterface
                 'guess number' => $total->whereIn('transaction', $item)->pluck('guessNumber')->first(),
                 'status' => $total->whereIn('transaction', $item)->pluck('status')->last(),
                 'used tries' => $total->whereIn('transaction', $item)->count(),
-                'params' => json_decode($total->where('transaction','=', $item)->first()->param->params),
-                'start date' => $total->where('transaction','=', $item)->first()->param->startDateTime,
-                'end date' => $total->where('transaction','=', $item)->first()->param->endDateTime,
-                'completion time' => $total->where('transaction','=', $item)->first()->param->completionTime,
+                'params' => json_decode($total->where('transaction', '=', $item)->first()->param->params),
+                'start date' => $total->where('transaction', '=', $item)->first()->param->startDateTime,
+                'end date' => $total->where('transaction', '=', $item)->first()->param->endDateTime,
+                'completion time' => $total->where('transaction', '=', $item)->first()->param->completionTime,
             ];
-
         });
 
         return $result;

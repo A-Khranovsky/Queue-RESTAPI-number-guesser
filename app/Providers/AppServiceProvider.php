@@ -15,8 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(QueueControllerServiceInterface::class, function(){
-           return new QueueControllerService();
+        $this->app->singleton(QueueControllerServiceInterface::class, function () {
+            return new QueueControllerService();
         });
     }
 
@@ -27,6 +27,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
     }
 }

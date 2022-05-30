@@ -15,7 +15,10 @@ use Illuminate\Queue\SerializesModels;
 
 class Job implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     protected $args = [
         'backoff' => 0,
@@ -57,14 +60,12 @@ class Job implements ShouldQueue
      */
     public function handle()
     {
-        $this->randNumber = mt_rand
-        (
+        $this->randNumber = mt_rand(
             $this->args['range']['start'],
             $this->args['range']['end']
         );
         if ($this->randNumber != $this->args['guessNumber']) {
-            event(new FailedJobEvent
-            (
+            event(new FailedJobEvent(
                 $this->randNumber,
                 $this->args['guessNumber'],
                 $this->transaction,
@@ -76,8 +77,7 @@ class Job implements ShouldQueue
             ];
             throw new Exception(json_encode($message, true));
         } else {
-            event(new SuccessJobEvent
-            (
+            event(new SuccessJobEvent(
                 $this->randNumber,
                 $this->args['guessNumber'],
                 $this->transaction,

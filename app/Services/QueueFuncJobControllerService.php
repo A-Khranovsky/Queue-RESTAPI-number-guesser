@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services;
-
 
 use App\Events\FailedJobEvent;
 use App\Events\SuccessJobEvent;
@@ -13,7 +11,6 @@ use Exception;
 
 class QueueFuncJobControllerService implements QueueControllerServiceInterface
 {
-
     public function show($request)
     {
         if ($request->has('transaction')) {
@@ -41,14 +38,12 @@ class QueueFuncJobControllerService implements QueueControllerServiceInterface
 
             $transaction = time();
 
-            $randNumber = mt_rand
-            (
+            $randNumber = mt_rand(
                 $args['range']['start'],
                 $args['range']['end']
             );
             if ($randNumber != $args['guessNumber']) {
-                event(new FailedJobEvent
-                (
+                event(new FailedJobEvent(
                     $randNumber,
                     $args['guessNumber'],
                     $transaction,
@@ -60,8 +55,7 @@ class QueueFuncJobControllerService implements QueueControllerServiceInterface
                 ];
                 throw new Exception(json_encode($message, true));
             } else {
-                event(new SuccessJobEvent
-                (
+                event(new SuccessJobEvent(
                     $randNumber,
                     $args['guessNumber'],
                     $transaction,
@@ -101,7 +95,6 @@ class QueueFuncJobControllerService implements QueueControllerServiceInterface
                 'end date' => $total->where('transaction', '=', $item)->first()->param->endDateTime,
                 'completion time' => $total->where('transaction', '=', $item)->first()->param->completionTime,
             ];
-
         });
 
         return $result;

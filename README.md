@@ -23,7 +23,7 @@ cp .env.example .env
 ## HTTP requests to direct the app or them combinations:
 * Start guessing a number which has configured by default with the others default configurations
 ```
-GET http://localhost:80/api/app/start
+GET http://localhost:80/api/start
 Accept: application/json
 
 ###
@@ -31,7 +31,7 @@ Accept: application/json
 
 * Start guessing a number which has configured in the request
 ```
-GET http://localhost:80/api/app/start?guess_number=32
+GET http://localhost:80/api/start?guess_number=32
 Accept: application/json
 
 ###
@@ -40,7 +40,7 @@ Accept: application/json
 * Start guessing a number which has configured by default and using trial number's range
   from request
 ```
-GET http://localhost:80/api/app/start?range[start]=0&range[end]=200
+GET http://localhost:80/api/start?range[start]=0&range[end]=200
 Accept: application/json
 
 ###
@@ -48,7 +48,7 @@ Accept: application/json
 * Start guessing a number which has configured from request and trial number's range which has
   configured from request also
 ```
-GET http://localhost:80/api/app/start?guess_number=32&range[start]=0&range[end]=200
+GET http://localhost:80/api/start?guess_number=32&range[start]=0&range[end]=200
 Accept: application/json
 
 ###
@@ -57,7 +57,7 @@ Accept: application/json
 * Start guessing a number which has configured from request and trial number's range which has
   configured from request also
 ```
-GET http://localhost:80/api/app/start?guess_number=32&range[start]=0&range[end]=200
+GET http://localhost:80/api/start?guess_number=32&range[start]=0&range[end]=200
 Accept: application/json
 
 ###
@@ -65,7 +65,7 @@ Accept: application/json
 
 * Start guessing a number with tries, backoff, range which has configured and from request
 ```
-GET http://localhost:80/api/app/start?tries=100&backoff=0&guess_number=32&range[start]=0&range[end]=200
+GET http://localhost:80/api/start?tries=100&backoff=0&guess_number=32&range[start]=0&range[end]=200
 Accept: application/json
 
 ###
@@ -73,7 +73,7 @@ Accept: application/json
 
 * View the logs of all transactions
 ```
-GET http://localhost:80/api/app/logs
+GET http://localhost:80/api/logs
 Accept: application/json
 
 ###
@@ -81,7 +81,7 @@ Accept: application/json
 
 * View the logs of tries for transaction 1652350657
 ```
-GET http://localhost:80/api/app/logs?transaction=1652350657
+GET http://localhost:80/api/logs?transaction=1652350657
 Accept: application/json
 
 ###
@@ -90,14 +90,14 @@ Accept: application/json
 * View the totals all transaction (Info about: was a number guessed or not, number of tries had made
   start, end time, spended time, used number's range, backoff and other params had inputed)
 ```
-GET http://localhost:80/api/app/total
+GET http://localhost:80/api/total
 Accept: application/json
 
 ###
 ```
 * Clear all the logs
 ```
-GET http://localhost:80/api/app/logs/clear
+GET http://localhost:80/api/logs/clear
 Accept: application/json
 
 ###
@@ -108,7 +108,7 @@ docker-compose down
 
 ## Some demostration:
 ```
-GET http://localhost:80/api/app/start
+GET http://localhost:80/api/start
 
 HTTP/1.1 200 OK
 Server: nginx/1.21.6
@@ -127,7 +127,7 @@ Started, transaction = 1652514523
 Response code: 200 (OK); Time: 733ms; Content length: 33 bytes
 
 
-GET http://localhost:80/api/app/total
+GET http://localhost:80/api/total
 
 HTTP/1.1 200 OK
 Server: nginx/1.21.6

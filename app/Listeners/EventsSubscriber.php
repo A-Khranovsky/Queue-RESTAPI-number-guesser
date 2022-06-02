@@ -2,12 +2,15 @@
 
 namespace App\Listeners;
 
+use App\Events\AfterJobEvent;
 use App\Events\FailedExceptionEvent;
 use App\Events\FailedJobEvent;
+use App\Events\JobEvent;
 use App\Events\SuccessJobEvent;
 use App\Models\Log;
 use App\Traits\WriteTimeParams;
 use Exception;
+use Illuminate\Queue\Events\JobProcessing;
 
 class EventsSubscriber
 {
@@ -68,6 +71,8 @@ class EventsSubscriber
             FailedExceptionEvent::class,
             [EventsSubscriber::class, 'handleFailedException']
         );
+
+
 
 //        return [
 //            SuccessJobEvent::class => 'handleSuccessJob',

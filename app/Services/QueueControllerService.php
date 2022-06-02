@@ -33,7 +33,7 @@ class QueueControllerService implements QueueControllerServiceInterface
         if ($request->has('range')) {
             $args['range'] = $request->range;
         }
-        Job::dispatch($args);
+        Job::dispatch($args)->onQueue('processing');;
         if (!empty($args)) {
             $result = ' Args:';
             array_walk_recursive($args, function ($item, $key) use (&$result) {
